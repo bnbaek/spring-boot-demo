@@ -1,12 +1,11 @@
 package net.openu.apidemoservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import java.time.LocalDateTime;
 
 /**
  * Created by iopenu@gmail.com on 2021/09/24
