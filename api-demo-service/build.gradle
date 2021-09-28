@@ -5,5 +5,7 @@ configurations {
 }
 
 dependencies {
+//    compile project(':redis-cache-service')
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 }

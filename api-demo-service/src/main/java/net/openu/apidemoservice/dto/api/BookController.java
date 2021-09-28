@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.openu.apidemoservice.dto.BookDto;
+import net.openu.apidemoservice.redis.entity.Point;
+import net.openu.apidemoservice.redis.repository.PointRedisRepository;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class BookController {
+
+  private final PointRedisRepository pointRedisRepository;
 
   /**
    * Request Parameter
@@ -39,7 +43,17 @@ public class BookController {
   @GetMapping("/api/book/requestParam")
   public String getTestRequestParam(@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
                                     @RequestParam("requestDate") LocalDateTime requestDate) {
+    //given
+    String id = "jojoldu";
+    LocalDateTime refreshTime = LocalDateTime.of(2018, 5, 26, 0, 0);
+    Point point = Point.builder()
+        .id(id)
+        .amount(1000L)
+        .refreshTime(refreshTime)
+        .build();
 
+    //when
+    pointRedisRepository.save(point);
     log.info("Get Data requestParam {}", requestDate);
     return "GET";
   }
@@ -52,6 +66,8 @@ public class BookController {
 
   @GetMapping("/api/book/response")
   public BookDto.Res response() {
+    Point getPoint = pointRedisRepository.findById("jojoldu").orElse(null);
+    log.info("getePoint {}",getPoint);
     return new BookDto.Res("resTitle", "resId", LocalDateTime.of(2021, 9, 24, 11, 12, 23));
   }
 }
