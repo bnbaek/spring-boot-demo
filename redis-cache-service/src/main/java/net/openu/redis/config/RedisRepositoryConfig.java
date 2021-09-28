@@ -1,6 +1,7 @@
 package net.openu.redis.config;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -17,7 +18,13 @@ public class RedisRepositoryConfig {
     @Value("${spring.data.redis.port}")
     private int redisPort;
 
+//    @Bean
+//    public RedisConnectionFactory redisConnectionFactory() {
+//        return new LettuceConnectionFactory(redisHost, redisPort);
+//    }
+
     @Bean
+    @ConditionalOnMissingBean(RedisConnectionFactory.class)
     public RedisConnectionFactory redisConnectionFactory() {
         return new LettuceConnectionFactory(redisHost, redisPort);
     }
