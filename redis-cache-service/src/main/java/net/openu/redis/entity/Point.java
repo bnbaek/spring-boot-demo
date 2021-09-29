@@ -1,4 +1,4 @@
-package net.openu.apidemoservice.redis.entity;
+package net.openu.redis.entity;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

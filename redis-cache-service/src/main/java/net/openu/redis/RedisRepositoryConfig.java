@@ -1,4 +1,4 @@
-package net.openu.apidemoservice.redis;
+package net.openu.redis;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

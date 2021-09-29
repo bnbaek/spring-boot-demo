@@ -37,7 +37,6 @@ subprojects {
     dependencies {
         implementation('org.projectlombok:lombok')
         annotationProcessor('org.projectlombok:lombok')
-        implementation group: 'it.ozimov', name: 'embedded-redis', version: '0.7.2'
         testImplementation("org.springframework.boot:spring-boot-starter-test") {
             exclude module: "junit" // JUnit4 제거, 스프링 부트 2.2.0 부터 JUnit5 적용
         }

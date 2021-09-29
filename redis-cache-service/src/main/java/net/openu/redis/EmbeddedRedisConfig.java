@@ -1,4 +1,4 @@
-package net.openu.apidemoservice.redis;
+package net.openu.redis;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,7 +16,7 @@ import org.springframework.util.StringUtils;
 import redis.embedded.RedisServer;
 
 @Slf4j
-@Profile("local")
+@Profile({"local","test"})
 @Configuration
 public class EmbeddedRedisConfig {
 
@@ -34,6 +34,7 @@ public class EmbeddedRedisConfig {
     public void redisServer() throws IOException {
         redisPort = isRedisRunning() ? findAvailablePort() : redisPort;
         redisServer = new RedisServer(redisPort);
+        System.out.println("redisPort "+ redisPort);
         redisServer.start();
     }
 

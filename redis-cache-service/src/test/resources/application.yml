@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: spring-boot-demo
+  profiles:
+    active: test
+  redis:
+    host: localhost
+    port: 6379
+  main:
+    web-application-type: none
+server:
+  port: 8080
+
+
+
+---
+spring:
+  profiles: test
+server.port: 9991
