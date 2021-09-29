@@ -1,0 +1,23 @@
+POST http://localhost:7800/api/point
+Content-Type: application/json
+
+{
+  "userId": "bbn",
+  "reason": "reg member",
+  "amount": 100
+}
+
+###
+
+POST http://localhost:7800/api/point/member
+Content-Type: application/json
+
+{
+  "id": "bbn@naver.com",
+  "name": "마테오"
+}
+
+
+###
+GET http://localhost:7800/api/point/member/bbn@naver.com
+Content-Type: application/json

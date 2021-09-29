@@ -1,10 +1,10 @@
-package net.openu.apidemoservice.dto.api;
+package net.openu.apidemoservice.api;
 
 import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.openu.apidemoservice.dto.BookDto;
-import net.openu.redis.entity.Point;
+import net.openu.apidemoservice.service.PointService;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class BookController {
-
 
     /**
      * Request Parameter

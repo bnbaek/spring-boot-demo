@@ -1,4 +1,6 @@
 rootProject.name = 'spring-boot-demo'
 include 'api-demo-service'
 include 'redis-cache-service'
+include 'member-db-service'
+include 'common-service'
 
